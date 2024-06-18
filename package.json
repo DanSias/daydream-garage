@@ -23,6 +23,7 @@
         "@headlessui/vue": "^1.7.22",
         "@programic/vue3-tooltip": "^1.0.0",
         "@vueuse/core": "^10.11.0",
+        "car-makes-icons": "^1.0.0",
         "floating-vue": "^5.2.2",
         "pinia": "^2.1.7",
         "vue-flux": "^7.0.0-beta.6",
