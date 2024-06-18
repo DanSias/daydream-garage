@@ -8,9 +8,9 @@ const filterStore = useFilterStore();
 import { useGarageStore } from "@/Stores/Garage";
 const garageStore = useGarageStore();
 
-onMounted(() => {
-    garageStore.getSearchResults();
-});
+// onMounted(() => {
+//     garageStore.getSearchResults();
+// });
 
 watch(
     () => filterStore.model,
