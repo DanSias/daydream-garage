@@ -76,7 +76,7 @@ const numberWithCommas = (x) => {
                         </a>
                     </div>
                     <!-- Price & Mileage -->
-                    <div class="grow flex-grow mx-2">
+                    <div class="grow mx-2">
                         <div
                             class="flex justify-between mb-3 font-normal text-gray-700 dark:text-gray-400"
                         >

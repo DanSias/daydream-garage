@@ -15,8 +15,6 @@ import {
 const filterStore = useFilterStore();
 const isOpen = ref(false);
 
-// const zip = defineModel("zip");
-// const distance = defineModel("distance");
 const distances = [10, 25, 50, 75, 100, 200, 500, 1000, 2000];
 
 function closeModal() {
@@ -84,7 +82,7 @@ function openModal() {
                                 as="h3"
                                 class="text-lg font-medium leading-6 text-gray-900"
                             >
-                                Search Distance
+                                Search Radius
                             </DialogTitle>
 
                             <p class="mt-2 text-sm text-gray-500">
@@ -94,7 +92,7 @@ function openModal() {
                                 <div class="w-1/2">
                                     <div>
                                         <label
-                                            for="zip"
+                                            for="zipcode"
                                             class="block text-sm font-medium leading-6 text-gray-900"
                                             >Zip Code</label
                                         >
@@ -106,9 +104,9 @@ function openModal() {
                                             ></div>
                                             <input
                                                 type="text"
-                                                name="zip"
-                                                id="zip"
-                                                v-model="filterStore.zip"
+                                                name="zipcode"
+                                                id="zipcode"
+                                                v-model="filterStore.zipcode"
                                                 class="w-5/6"
                                             />
                                             <div
@@ -119,12 +117,14 @@ function openModal() {
                                 </div>
                                 <div class="w-1/2">
                                     <label
-                                        for="distance"
+                                        for="searchradius"
                                         class="block text-sm font-medium leading-6 text-gray-900"
                                         >Distance (Miles)
                                     </label>
                                     <select
-                                        v-model="filterStore.distance"
+                                        v-model="filterStore.searchradius"
+                                        name="searchradius"
+                                        id="searchradius"
                                         class="w-5/6"
                                     >
                                         <option disabled value="">
@@ -155,7 +155,7 @@ function openModal() {
                                 <div class="w-1/2">
                                     <div>
                                         <label
-                                            for="zip"
+                                            for="yearmin"
                                             class="block text-sm font-medium leading-6 text-gray-900"
                                             >Min</label
                                         >
@@ -167,8 +167,8 @@ function openModal() {
                                             ></div>
                                             <input
                                                 type="text"
-                                                name="zip"
-                                                id="zip"
+                                                name="yearmin"
+                                                id="yearmin"
                                                 v-model="filterStore.yearmin"
                                                 class="w-5/6"
                                             />
@@ -180,14 +180,14 @@ function openModal() {
                                 </div>
                                 <div class="w-1/2">
                                     <label
-                                        for="distance"
+                                        for="yearmax"
                                         class="block text-sm font-medium leading-6 text-gray-900"
                                         >Max
                                     </label>
                                     <input
                                         type="text"
-                                        name="zip"
-                                        id="zip"
+                                        name="yearmax"
+                                        id="yearmax"
                                         v-model="filterStore.yearmax"
                                         class="w-5/6"
                                     />
@@ -209,7 +209,7 @@ function openModal() {
                                 <div class="w-1/2">
                                     <div>
                                         <label
-                                            for="zip"
+                                            for="mileagemin"
                                             class="block text-sm font-medium leading-6 text-gray-900"
                                             >Min</label
                                         >
@@ -221,8 +221,8 @@ function openModal() {
                                             ></div>
                                             <input
                                                 type="text"
-                                                name="zip"
-                                                id="zip"
+                                                name="mileagemin"
+                                                id="mileagemin"
                                                 v-model="filterStore.mileagemin"
                                                 class="w-5/6"
                                             />
@@ -234,14 +234,14 @@ function openModal() {
                                 </div>
                                 <div class="w-1/2">
                                     <label
-                                        for="distance"
+                                        for="mileagemax"
                                         class="block text-sm font-medium leading-6 text-gray-900"
                                         >Max
                                     </label>
                                     <input
                                         type="text"
-                                        name="zip"
-                                        id="zip"
+                                        name="mileagemax"
+                                        id="mileagemax"
                                         v-model="filterStore.mileagemax"
                                         class="w-5/6"
                                     />
@@ -263,7 +263,7 @@ function openModal() {
                                 <div class="w-1/2">
                                     <div>
                                         <label
-                                            for="zip"
+                                            for="pricemin"
                                             class="block text-sm font-medium leading-6 text-gray-900"
                                             >Min</label
                                         >
@@ -275,8 +275,8 @@ function openModal() {
                                             ></div>
                                             <input
                                                 type="text"
-                                                name="zip"
-                                                id="zip"
+                                                name="pricemin"
+                                                id="pricemin"
                                                 v-model="filterStore.pricemin"
                                                 class="w-5/6"
                                             />
@@ -288,14 +288,14 @@ function openModal() {
                                 </div>
                                 <div class="w-1/2">
                                     <label
-                                        for="distance"
+                                        for="pricemax"
                                         class="block text-sm font-medium leading-6 text-gray-900"
                                         >Max
                                     </label>
                                     <input
                                         type="text"
-                                        name="zip"
-                                        id="zip"
+                                        name="pricemax"
+                                        id="pricemax"
                                         v-model="filterStore.pricemax"
                                         class="w-5/6"
                                     />

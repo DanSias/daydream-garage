@@ -10,7 +10,7 @@ watch(
     () => targetIsVisible,
     (selection, prevSelection) => {
         if (targetIsVisible && garageStore.results.length) {
-            alert("ready for more");
+            // alert("ready for more");
         }
         // garageStore.getSearchResults();
     }
@@ -18,6 +18,7 @@ watch(
 </script>
 <template>
     <div
+        v-if="garageStore.results.length"
         class="flex justify-center cursor-pointer mt-4"
         @click="garageStore.loadMore(garageStore.results.length)"
     >
@@ -38,13 +39,7 @@ watch(
             </svg>
         </div>
         <div>
-            <h5
-                ref="target"
-                v-if="garageStore.results.length"
-                class="text-xl text-gray-50 my-4"
-            >
-                Load More
-            </h5>
+            <h5 ref="target" class="text-xl text-gray-50 my-4">Load More</h5>
         </div>
         <div>
             <svg

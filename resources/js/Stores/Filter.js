@@ -5,8 +5,8 @@ export const useFilterStore = defineStore('filter', () => {
     let make = ref('');
     let model = ref('');
 
-    let zip = ref(32746);
-    let distance = ref(2000);
+    let zipcode = ref(32746);
+    let searchradius = ref(2000);
 
     let mileagemin = ref(0);
     let mileagemax = ref(3500000);
@@ -21,5 +21,5 @@ export const useFilterStore = defineStore('filter', () => {
         return make != '' ? 'Yes' : 'No'
       })
 
-    return { make, model, zip, distance, mileagemin, mileagemax, yearmin, yearmax, pricemin, pricemax, filterObject };
+    return { make, model, zipcode, searchradius, mileagemin, mileagemax, yearmin, yearmax, pricemin, pricemax, filterObject };
 });

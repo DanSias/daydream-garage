@@ -10,6 +10,7 @@ export const useGarageStore = defineStore('garage', () => {
     let results = ref([]);
     let saved = ref([]);
     let ignored = ref([]);
+    let loading = ref(false)
 
     let note = ref('');
     let category = ref('');
@@ -25,8 +26,8 @@ export const useGarageStore = defineStore('garage', () => {
             make: filterStore.make,
             model: filterStore.model,
             start: start,
-            zip: filterStore.zip,
-            distance: filterStore.distance,
+            zipcode: filterStore.zipcode,
+            searchradius: filterStore.searchradius,
             mileagemin: filterStore.mileagemin,
             mileagemax: filterStore.mileagemax,
             yearmin: filterStore.yearmin,
@@ -34,12 +35,13 @@ export const useGarageStore = defineStore('garage', () => {
             pricemin: filterStore.pricemin,
             pricemax: filterStore.pricemax,
         };
-    
+        loading = true
         axios.get("/search", { params: filter }).then((response) => {
             if (start == 0) {
                 return results.value = response.data;
             }
             results.value = results.value.concat(response.data)
+            loading = false
         });
     };
 

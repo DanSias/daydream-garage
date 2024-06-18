@@ -28,6 +28,9 @@ class SearchController extends Controller
         'status'
     ];
 
+    public $detailString = '&order[0][column]=6&order[0][dir]=desc&length=15&search[value]=&search[regex]=false&sources[]=Bring A Trailer&sources[]=Cars And Bids&sources[]=Ebay&sources[]=Facebook';
+
+    // Format request URL based on expected values
     public function columnDetails() {
         $columnString = base64_decode($this->urlBase) . '?draw=1&';
         foreach ($this->columns as $key => $value) {
@@ -36,24 +39,27 @@ class SearchController extends Controller
         return $columnString;
     }
 
-    public $restOfString = '&order[0][column]=6&order[0][dir]=desc&length=15&search[value]=&search[regex]=false&sources[]=Bring A Trailer&sources[]=Cars And Bids&sources[]=Ebay&sources[]=Facebook';
-
+    // Build Request URL based on user filter
     public function url() {
         $query = $this->validateQuery();
-        $url = $this->columnDetails() . $this->restOfString;
-        $url .= "&make={$query['make']}";
-        $url .= "&model={$query['model']}";
-        $url .= "&start={$query['start']}";
-        $url .= "&mileagemin={$query['mileagemin']}&mileagemax={$query['mileagemax']}&pricemin={$query['pricemin']}&pricemax={$query['pricemax']}&yearmin={$query['yearmin']}&yearmax={$query['yearmax']}&zipcode={$query['zip']}&searchradius={$query['distance']}";
+
+        $userString = '';
+        foreach ($query as $key => $value) {
+            $userString .= "&{$key}={$value}";
+        }
+
+        $url = $this->columnDetails() . $this->detailString;
+        $url .= $userString;
         return $url;
     }
 
+    // Query and format car details
     public function getCars(Request $request) {
-        
         $response = Http::get($this->url());
         $json = json_decode($response);
         $data = $json->data;
 
+        // Add Keys
         $returnArray = [];
         foreach ($data as $i => $array) {
             $obj = new \StdClass();
@@ -66,15 +72,15 @@ class SearchController extends Controller
         return $returnArray;
     }
 
-       
+    // Validate search request   
     public function validateQuery()
     {
         return request()->validate([
             'make' => '',
             'model' => '',
             'start' => '',
-            'zip' => '',
-            'distance' => '',
+            'zipcode' => '',
+            'searchradius' => '',
             'mileagemin' => '',
             'mileagemax' => '',
             'yearmin' => '',
