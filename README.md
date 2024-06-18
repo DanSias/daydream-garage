@@ -1,66 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Daydream Garage
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+View and judge cars from all the major online sales platforms: FB Marketplace, BaT, C&B, and more — all from one simple interface. With Daydream Garage, you can effortlessly browse a wide range of listings.
 
-## About Laravel
+Search locally or expand your horizons and explore listings across the country - Daydream Garage has you covered. Our comprehensive and intuitive search tools make it easy to filter results by make, model, price, location, and more, so you can zero in on the perfect vehicle.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Register today and experience the ultimate car-browsing experience. Say goodbye to the hassle of jumping between different websites and hello to a streamlined solution that puts you in the driver's seat. Also, NO ADS!
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Save Cars & Searches
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Never miss a listing when you can easily scan through your favorite searches with just a click. Daydream Garageoffers a seamless experience, allowing you to save and organize your preferred searches. With intuitive filters and a user-friendly interface, finding your next dream car has never been easier. Join us today and discover the smarter way to search for cars.
 
-## Learning Laravel
+## Easily Ignore Cars
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Sometimes it seems like the same turd shows up over and over, cluttering your search results. Daydream Garage allows you to hide any car with just a click, ensuring that it never shows up again.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Say goodbye to the frustration of repeatedly seeing the same unwanted listings. Focus on discovering the perfect vehicle without so many unwanted distractions. Also, NO ADS!
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Share & Talk Trash
 
-## Laravel Sponsors
+Whether you're in the market for a new car or simply enjoy roasting ridiculous shitboxes, Daydream Garage has you covered. Browse and search for vehicles while sharing interesting finds with your friends.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Found a hilarious lemon that you just have to show off? Share it with a click and let the fun begin! Did we mention, NO ADS!
 
-### Premium Partners
+## How to install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Prerequisites
 
-## Contributing
+To run Daydream Garage locally, you need to have these packages installed (Homebrew is your friend)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   Composer
+-   Laravel
+-   NPM
 
-## Code of Conduct
+### Install Process
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Download the package to your local environmnent
+-   Run these commands in your terminal
 
-## Security Vulnerabilities
+First, install the dependencies:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+composer install
+```
 
-## License
+```
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Now setup Laravel:
+
+```
+php artisan migrate
+```
+
+```
+php artisan key:generate
+```
+
+Create a local server:
+
+```
+php artisan serve
+```
+
+Compile the JS and setup hot reload
+
+```
+npm run dev
+```
+
+This will provide you with the port kto view the project, and currently it is running off sqlite database so all saved changes will be visible locally
