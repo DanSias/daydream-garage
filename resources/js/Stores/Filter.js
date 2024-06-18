@@ -5,7 +5,7 @@ export const useFilterStore = defineStore('filter', () => {
     let make = ref('');
     let model = ref('');
 
-    let zipcode = ref(32746);
+    let zipcode = ref(0);
     let searchradius = ref(2000);
 
     let mileagemin = ref(0);
