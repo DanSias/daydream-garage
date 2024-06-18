@@ -1,12 +1,14 @@
 <script setup>
 import { onMounted } from "vue";
 import { useFilterStore } from "@/Stores/Filter";
+import { useGarageStore } from "@/Stores/Garage";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SearchListings from "@/Components/Cars/SearchListings.vue";
 import VehicleSelect from "@/Components/Cars/VehicleSelect.vue";
 import LoadMore from "@/Components/Cars/LoadMore.vue";
 
 const filterStore = useFilterStore();
+const garageStore = useGarageStore();
 
 const props = defineProps({
     makeProp: {
@@ -20,10 +22,11 @@ const props = defineProps({
 });
 
 // Set store values to match props
-// onMounted(() => {
-//     filterStore.make = props.make;
-//     filterStore.model = props.model;
-// });
+onMounted(() => {
+    filterStore.make = props.makeProp;
+    filterStore.model = props.modelProp;
+    garageStore.getSearchResults();
+});
 </script>
 
 <template>
